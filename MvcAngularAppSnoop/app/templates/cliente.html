@@ -1,6 +1,7 @@
 ﻿
 <h2>Clientes</h2>
-
+<a href="#/addcliente" class="btn btn-primary">Crear Cliente</a>
+<br /><hr />
 <div class="panel panel-default">
     <div class="panel-heading">
         Lista de Clientes
@@ -9,17 +10,24 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Nombre</th>
+                    <td>Id</td>
+                    <th>Nombres</th>
                     <th>Apellido</th>
+                    <th>#</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="i in clientes">
+                    <td>{{i.Id}}</td>
                     <td>{{i.Nombre}}</td>
                     <td>{{i.Apellido}}</td>
+                    <td>
+                        <a href="#/editcliente/{{i.Id}}">Editar</a>
+                        <a href="" ng-click="deleteCliente(i.Id)">Borrar</a>
+                    </td>
                 </tr>
                 <tr ng-if="!clientes || clientes.length == 0">
-                    <td colspan="3" style="text-align:center">
+                    <td colspan="4" style="text-align:center">
                         No hay ningun cliente
                     </td>
                 </tr>
