@@ -1,0 +1,29 @@
+﻿
+<h2>Clientes</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Lista de Clientes
+    </div>
+    <div class="panel-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="i in clientes">
+                    <td>{{i.Nombre}}</td>
+                    <td>{{i.Apellido}}</td>
+                </tr>
+                <tr ng-if="!clientes || clientes.length == 0">
+                    <td colspan="3" style="text-align:center">
+                        No hay ningun cliente
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
