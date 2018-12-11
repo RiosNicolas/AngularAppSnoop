@@ -7,24 +7,32 @@
         Lista de Clientes
     </div>
     <div class="panel-body">
-        <table class="table">
+        <div class="row">
+            <div class="form-group text-center">
+                <label>Buscar </label>
+                <label>
+                    <input type="text" class="form-control"  ng-model="serchText"/>
+                </label>
+            </div>
+        </div>
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Nombres</th>
                     <th>Apellido</th>
-                    <th>#</th>
+                    <th><em>Acciones</em></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="i in clientes">
+                <tr ng-repeat="i in clientes | filter: serchText">
                     <td>{{i.Nombre}}</td>
                     <td>{{i.Apellido}}</td>
                     <td>
-                        <a href="#/editcliente/{{i.Id}}">Editar</a>
-                        <a href="" ng-click="deleteCliente(i.Id)">Borrar</a>
+                        <a href="editcliente/{{i.Id}}" class="btn btn-warning">Editar</a>
+                        <a href="" ng-click="deleteCliente(i.Id)" class="btn btn-danger">Borrar</a>
                     </td>
                 </tr>
-                <tr ng-if="!clientes || clientes.length == 0">
+                <tr ng-if="!clientes || (clientes | filter: serchText).length == 0">
                     <td colspan="4" style="text-align:center">
                         No hay ningun cliente
                     </td>

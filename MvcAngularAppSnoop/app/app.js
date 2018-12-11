@@ -18,7 +18,7 @@
                     controller: 'clienteAddCtrl',
                     templateUrl: '/app/templates/clienteAdd.html'
                 })
-                .when('/editcliente/:id', {
+                .when('/editcliente/id', {
                     controller: 'clienteEditCtrl',
                     templateUrl: '/app/templates/clienteEdit.html'
                 })
